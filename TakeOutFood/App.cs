@@ -35,14 +35,12 @@
             List<double> foodPrice = food.GetFoodPrices(foodCodes);
 
             string text = "============= Order details =============\n";
-            Console.WriteLine("============= Order details =============");
             double totalOriginPrice = 0;
             for (int i = 0; i < inputFoodName.Count; i++)
             {
                 double totalPricePerFood = foodPrice[i] * foodCounts[i];
                 totalOriginPrice += totalPricePerFood;
-                text += inputFoodName[i] + " x " + foodCounts[i].ToString() + " = " + totalPricePerFood.ToString() + " yuan\n";
-                Console.WriteLine(inputFoodName[i] + " x " + foodCounts[i].ToString() + " = " + totalPricePerFood.ToString() + " yuan");
+                text += inputFoodName[i] + " x " + foodCounts[i].ToString() + " = " + totalPricePerFood.ToString() + " yuan\n";               
             }
 
 
@@ -59,25 +57,19 @@
                 }
             }
 
-            text += "-----------------------------------\n";
-            Console.WriteLine("-----------------------------------");
-
-
             if (promotionFoodList.Count == 2)
             {
+                text += "-----------------------------------\n";
                 text += "Promotion used:\n";
-                Console.WriteLine("Promotion used:");
                 text += "Half price for certain dishes "
-                    + "(" + promotionFoodList[0] + ", " + promotionFoodList[1] + "), saving " + totalhalfPrice + " yuan\n";
-                Console.WriteLine("Half price for certain dishes "
-                    + "(" + promotionFoodList[0] + ", " + promotionFoodList[1] + "), saving " + totalhalfPrice + " yuan");
+                    + "(" + promotionFoodList[0] + ", " + promotionFoodList[1] + "), saving " + totalhalfPrice + " yuan\n";        
+               
             }
+
             text += "-----------------------------------\n";
             double totalPrice = totalOriginPrice - totalhalfPrice;
-            text += "Total: " + totalPrice + " yuan\n";
-            Console.WriteLine("Total: " + totalPrice + " yuan");
-            text += "====================================";
-            Console.WriteLine("===================================");
+            text += "Total：" + totalPrice + " yuan\n";
+            text += "===================================";
 
             return text;
         }
